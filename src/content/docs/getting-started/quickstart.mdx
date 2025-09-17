@@ -1,0 +1,189 @@
+---
+title: Quickstart (5 min)
+description: Connect your first community, seed your knowledge, and get your AI moderator answering in minutes.
+sidebar:
+  order: 1
+---
+
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+import { Video } from '@/components/video';
+
+import AddKnowledgeVideo from '@/assets/videos/getting-started/add-knowledge.mp4';
+import SemanticSearchVideo from '@/assets/videos/getting-started/semantic-search.mp4';
+import LiveDemoVideo from '@/assets/videos/getting-started/live-demo.mp4';
+
+Time: **2–5 minutes** · Result: your bot answers a real question in your community.
+
+> If you prefer a broader intro first, see the **[Overview](/getting-started/overview/)**.  
+> For deeper theory later, jump to **[Core Concepts](/getting-started/core-concepts/)**.
+
+---
+
+## 1) Sign in
+
+Sign in at **[app.c12s.ai](https://app.c12s.ai)** with **Google**, **Discord**, or **Telegram**.  
+We only use trusted OAuth providers—**no passwords** to reduce credential risk.
+
+![Provider sign-in options](@/assets/screenshots/getting-started/sso-login.png)
+
+> **Invited by a teammate?** If you haven’t used C12s before, you’ll create an account and a default org (e.g., “Your Name’s Team”). After you accept the invite, you may see **two organizations**. Use the org switcher ([top-right](@/assets/screenshots/getting-started/org-switcher.png)) to select the correct one and rename/leave the extra later (see step 2).
+
+---
+
+## 2) Name your organization
+
+Go to **Settings → General** and:
+- **Rename** your org to your company/brand.
+- Add a short **description** (1–2 paragraphs).
+- (Optional) **Upload a logo**.
+
+![Org settings](@/assets/screenshots/getting-started/general-org-settings.png)
+
+> **Tip:** Clear names reduce confusion when you belong to multiple orgs.
+
+---
+
+## 3) Connect your first community
+
+On **Settings → Integrations**, click **Connect** and pick a platform.
+
+![Connect button](@/assets/screenshots/getting-started/integrations-connect-button.gif)
+
+You’ll see a verification prompt like:
+
+```text
+/verify <code>
+```
+
+<Steps>
+1. **Add the C12s bot** to your community.
+</Steps>
+<Tabs>
+  <TabItem label="Discord">Follow the [Discord install guide](/platforms/discord/install/).</TabItem>
+  <TabItem label="Telegram">Follow the [Telegram setup guide](/platforms/telegram/setup/).</TabItem>
+  <TabItem label="Slack (Beta)">Follow the [Slack (Beta) guide](/platforms/slack/).</TabItem>
+</Tabs>
+<Steps>
+2. Within the community's chat, paste the **/verify** command with your code.
+3. Return to C12s — your community will appear as **connected**.
+</Steps>
+
+{/* Note to Rui: the verify modal is currently under development to include adding the bot links in it, so the screenshot isn't ready yet
+
+![Verify modal](../../assets/qs-verify.png)
+*/}
+
+> **Permissions checklist (minimum):** the bot must **read messages** and **send messages** in channels you want it to operate in. For Discord, ensure **Read Message History** is allowed. If you wish to use Moderation features, ensure the relevant permissions are given as well.
+
+---
+
+## 4) Choose the bot’s behavior
+
+In **Settings → AI Configuration**:
+
+* **Personality:** pick a preset (e.g., *Short & Friendly*), or create a Custom one.
+* **Read / Write / Learn:**
+
+  * **Read** → allow the bot to read all messages by default (you can hide private/sensitive channels in the **Overrides** section).
+  * **Write** →
+    * *Passive* (default for free orgs): replies only when explicitly prompted (@tagged or /ask).
+    * *Active* (recommended for paid orgs): answers automatically when a relevant Knowledge Entry is found.
+  * **Learn** → auto-learn from staff replies (toggle as desired).
+
+![AI Write Modes](@/assets/screenshots/getting-started/ai-write-modes.gif)
+
+> **Discord/Slack channel overrides:** use **Overrides** to fine-tune Read/Write/Learn per channel (handy for announcements or private areas).
+
+---
+
+## 5) Seed your Knowledge Base
+
+Go to **Knowledge Base** and start with either path:
+
+**A. Create manual entries (fastest)**
+
+* Click **+ Knowledge** → write a concise **Answer** for one topic (pricing, access, roadmap, troubleshooting, policies, etc.).
+* Add a few **Questions** that users might ask regarding this piece of Knowledge (suggestion: use **Generate Questions** to get automatically get a list of questions you can edit).
+
+<Video
+  src={AddKnowledgeVideo}
+  title='Adding a Knowledge Entry to the Knowledge Base'
+  autoPlay
+  loop
+  controls
+/>
+
+**B. Import sources**
+
+* Add a **URL** to ingest product pages, docs, or PDFs. The process usually takes less than a minute to complete.
+* (Paid) **Web search with whitelisted domains** lets you reference a whole site (e.g., your docs/blog) without importing every page individually.
+
+{/* ![Knowledge table empty](../../assets/qs-kb-empty.png) */}
+{/* ![Entry with generated questions](../../assets/qs-kb-entry.png) */}
+
+> **Starter set:** 10–20 topics that cover 80% of common questions is ideal for a first pass.
+
+---
+
+## 6) Sanity-check with Semantic Search
+
+Still on **Knowledge Base**, type a typical user question in the **Search** bar and click the **✨** button.
+
+* If you see a **match with a high similarity score** (≈ **70%+**), the bot would use that source to answer in your community.
+* **No match?** Add/adjust the entry's **Questions** (phrasing matters for recall); too short questions will likely trigger more often (may increase false triggers), while too long ones will likely trigger less often (may miss relevant questions that could've been answered otherwise).
+
+<Video
+  src={SemanticSearchVideo}
+  title='Semantic Search in the Knowledge Base'
+  autoPlay
+  loop
+  controls
+/>
+
+---
+
+## 7) Ask it live
+
+Go to your connected community and ask the same question.
+
+* In **Passive** write mode: **explicitly prompt** the bot (e.g., mention it or use your bot’s /ask command); if no match is found, it will reply with a canned message that it doesn't know the answer.
+* In **Active** write mode: it will answer users (_not staff!_) automatically when a relevant Knowledge Entry is found, and ignore (& log internally) otherwise.
+
+If it doesn’t answer, see **[Troubleshooting](/resources/troubleshooting/)**.
+
+<Video
+  src={LiveDemoVideo}
+  title='Asking the bot a live question and getting an answer back.'
+  autoPlay
+  loop
+  controls
+/>
+
+> **Note**: community admins always need to explicitly prompt the bot, to avoid accidentally interrupting staff conversations.
+
+---
+
+## Done! What next?
+
+* **Tune moderation & safety** → **[Spam & policy actions](/moderation/spam-detection/)**
+* **Add more knowledge** (weekly) to improve coverage, and review the **[Unanswered Questions](/analytics/unanswered-questions/)**.
+* **Review analytics** after a few days to find hot topics → **[Dashboards](/analytics/dashboards/)**
+* **Connect more communities** or enable **Active** mode (paid) for hands-off answers.
+
+---
+
+## Common pitfalls & quick fixes
+
+* **Two organizations:** use the org switcher (top-right), rename clearly, and leave the extra if you joined an existing team.
+* **Verify not working:** re-add the bot, then regenerate a new `/verify <code>` and try again.
+* **No answers:** either Write is set to *Passive* and you didn’t explicitly prompt, or there’s **no matching knowledge**. Add an entry and re-test with **✨**. Don't forget that even in *Active* mode, the bot ignores messages from staff if not explicitly prompted.
+* **Permissions:** the bot must read + send in the target channel/group; in Discord also enable **Read Message History**.
+
+---
+
+## Need help?
+
+* **Troubleshooting** → **[Guide](/resources/troubleshooting/)**
+* **FAQ** → **[Answers](/resources/faq/)**
+* **Status** → **[Live health](https://status.c12s.ai)**
+* **Support** → **[Contact us](/support/)**

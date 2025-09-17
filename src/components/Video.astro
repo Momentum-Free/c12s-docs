@@ -1,0 +1,93 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+// Extend built-in video attributes and also accept React-style camelCase for MDX ergonomics (autoPlay, playsInline, etc.).
+type VideoAttrs = HTMLAttributes<'video'> & {
+  autoPlay?: boolean;
+  playsInline?: boolean;
+  controlsList?: string;
+  disablePictureInPicture?: boolean;
+};
+
+interface Props extends Omit<VideoAttrs, 'class' | 'style' | 'title' | 'src'> {
+  // Source file for the <video>. Optional if using <source> children via <slot />.
+  src?: string;
+  // Any aspect ratio you want, e.g. '16:9', '4/3', 1.777, etc.
+  ratio?: string | number;
+  // Classes and style for the outer wrapper.
+  class?: string;
+  style?: string;
+  // Classes just for the <video> element.
+  videoClass?: string;
+  // Optional caption below the video.
+  caption?: string;
+  // Used for the video title attribute and as a11y label.
+  title?: string;
+}
+
+const {
+  ratio,
+  class: wrapperClass = '',
+  style: wrapperStyle = '',
+  videoClass = '',
+  caption,
+  title,
+  src,
+  // React/MDX-style booleans and variants
+  autoPlay,
+  autoplay,
+  playsInline,
+  playsinline,
+  controlsList,
+  controlslist,
+  disablePictureInPicture,
+  disablepictureinpicture,
+  // Everything else falls through to the <video/>
+  ...rest
+} = Astro.props as Props;
+
+function computeAspect(val: unknown): string | null {
+  if (val == null) return null;
+  if (typeof val === 'number' && Number.isFinite(val)) return `${val} / 1`;
+  if (typeof val === 'string') {
+    const trimmed = val.trim();
+    if (trimmed.includes(':')) {
+      const [w, h] = trimmed.split(':').map((n) => parseFloat(n));
+      if (Number.isFinite(w) && Number.isFinite(h) && h !== 0) return `${w} / ${h}`;
+    }
+    if (trimmed.includes('/')) {
+      const [w, h] = trimmed.split('/').map((n) => parseFloat(n));
+      if (Number.isFinite(w) && Number.isFinite(h) && h !== 0) return `${w} / ${h}`;
+    }
+    const num = parseFloat(trimmed);
+    if (Number.isFinite(num)) return `${num} / 1`;
+  }
+  return null;
+}
+
+const ar = computeAspect(ratio);
+const wrapperStyleFinal = [wrapperStyle, ar ? `aspect-ratio: ${ar}` : '']
+  .filter(Boolean)
+  .join('; ');
+
+// Normalize camelCase props to HTML attributes for the <video>
+const normalizedAttrs: Record<string, any> = {
+  ...rest,
+  src,
+  autoplay: (autoPlay ?? autoplay) ? true : undefined,
+  playsinline: (playsInline ?? playsinline) ? true : undefined,
+  controlslist: controlsList ?? controlslist,
+  disablepictureinpicture: (disablePictureInPicture ?? disablepictureinpicture) ? true : undefined,
+  title,
+  'aria-label': title,
+};
+---
+
+<figure class={`relative ${wrapperClass}`} style={wrapperStyleFinal}>
+  <video {...normalizedAttrs} class={videoClass || 'h-full w-full'}>
+    <slot />
+  </video>
+  {caption ? (
+    <figcaption class="mt-2 text-center text-sm opacity-75">{caption}</figcaption>
+  ) : null}
+</figure>

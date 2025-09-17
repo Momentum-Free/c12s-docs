@@ -1,0 +1,108 @@
+---
+title: Overview
+description: What C12s is and who it’s for. Scale communities safely with automations, moderation, and reporting.
+sidebar:
+  order: 0
+---
+
+import { Steps, LinkCard } from '@astrojs/starlight/components';
+
+C12s is an **AI community manager and moderator agent** for community-centric businesses. It answers user questions 24/7 in multiple languages, filters spam/scams, and gives your team **analytics and workflows** to run Discord, Telegram, and Slack communities with confidence.
+
+This page orients you to core ideas and the fastest route to value.
+
+---
+
+## What you can do with C12s
+
+- **Instant answers, on-brand** — Pull from your **Knowledge Base** (files, docs, URLs, FAQs) and **real-time APIs** (*soon*) to answer accurately in public channels.  
+- **Moderation & safety** — Flag and remove spam/scams, enforce rules and optionally enable community self-moderation.  
+- **Automations & workflows** — Triage tickets, set autoresponses, and connect downstream tools via webhooks (*soon*).  
+- **Reporting & analytics** — Track AI performance, moderator efficiency, sentiment, schedule recurring reports, and surface hotspots to fix (*soon*).
+- **Multiple platforms** - You can connect all supported platforms (Discord, Telegram & Slack) to the same organization and reuse the same Knowledge Base and Moderation Policies across all of them simultaneously.
+
+> **Outcome first:** Start with a safe, minimal setup. Add depth as your needs grow.  
+> If you’re here to get live quickly, jump to **[Quickstart (5 min)](/getting-started/quickstart/)**.
+
+---
+
+## Who this is for
+
+- **Founders / Community Managers:** Ship a reliable multi-lingual support experience without hiring a 24/7 team.  
+- **Moderators:** Reduce repetitive Q&A, scam-banning and chat-cleaning, and focus on judgment calls, community building and genuine value-add interactions. 
+{/* - **Developers:** Integrate events, webhooks, and APIs to extend C12s into your stack. */}
+
+---
+
+## How C12s works (high level)
+
+<Steps>
+
+1. **Connect a platform** (Discord/Telegram/Slack Beta) to your **organization**.  
+2. **Create a Knowledge Base** by adding **sources** (files, URLs, FAQs). You can also use **Shared Knowledge Bases** across different projects under the same ecosystem or even the same company.  
+3. **Choose moderation policies** (e.g., set community rules, spam triggers & actions, escalations) and optional **automations** (autoresponses, scheduled messages (soon), self-moderation).  
+4. **Go live** and review **Reporting & Analytics** to iterate.
+
+</Steps>
+
+---
+
+## Key terms at a glance
+
+- **Community**: Where your brand's users interact. We currently support Discord (servers), Telegram (groups), and Slack (workspaces).
+- **Organization**: Your top-level workspace in C12s. One user can have multiple organizations (e.g., one for each product or brand, or even per client (e.g. a marketing agency)).  
+- **Agent**: The AI that reads events, consults your Knowledge Base, applies Policies, and responds or escalates.  
+- **Knowledge Base (KB)**: A collection of Sources and Entries used to answer questions.  
+- **Shared KB***: A knowledge base that can be reused across different organizations (e.g. a Solana KB for all Solana projects to benefit from as a shared knowledge resource).  
+- **Policy**: Your rules for moderation actions (allow, warn, delete, escalate).  
+- **Automation**: Time- or event-based actions (e.g., scheduled canned messages*, community reports, autoresponses, ticket triage*, webhooks*).  
+- **Reporting**: Analytics Dashboards and AI-generated reports* from community sentiment to surface hotspots and trends.
+
+> (*) Note: Some of these features are currently in beta and may have limitations or require additional configuration.
+
+<LinkCard
+  title="Core Concepts"
+  href="/getting-started/core-concepts/"
+  description="If you want deeper definitions, take a look at this page after your first run."
+>
+</LinkCard>
+
+---
+
+## Recommended first setup (3-5 minutes)
+
+<Steps>
+
+1. **Create a project** in our dashboard and optionally invite your team (_one free organization is automatically created for every new user_).  
+2. **Connect your Organization to your community's platform** (Discord, Telegram, etc.).
+3. **Seed your Knowledge Base** with 10–20 different entries that your users ask most, or add a URL Source from your main website, FAQ page or docs.  
+4. **Demo the product** in a private test group or channel and ask 3–5 real user questions which should be covered by your seeded Knowledge Base.  
+5. **Turn on baseline moderation** (spam/scam presets) and add the Community Rules.  
+6. **Review reporting after 48–72 hours** and adjust sources/policies.
+
+</Steps>
+
+→ The full walkthrough lives in **Quickstart**: [/getting-started/quickstart/](/getting-started/quickstart/)
+
+---
+
+## Best-practice launch patterns
+
+- **Start in a sandbox** (test server/channel) before going public.  
+- **One source of truth** — store canonical answers in the KB; avoid ad-hoc “manual replies” drift.  
+- **Short feedback loop** — use analytics, look at the list of 'unanswered questions' and message audits daily in week 1, then weekly.  
+- **Gradual rollout** — Limit auto-replies to a few select channels (Discord) → full automation across the community once confident.
+
+---
+
+## Where to go from here
+
+- **Quickstart (5 min):** [/getting-started/quickstart/](/getting-started/quickstart/)  
+- **Discord setup:** [/platforms/discord/install/](/platforms/discord/install/)  
+- **Knowledge Base:** [/knowledge/creating-sources/](/knowledge/creating-sources/)  
+- **Moderation:** [/moderation/spam-detection/](/moderation/spam-detection/)  
+- **Automations:** [/automations/](/automations/)  
+- **Analytics:** [/analytics/dashboards/](/analytics/dashboards/)  
+{/* - **API & Webhooks:** [/developers/api/overview/](/developers/api/overview/), [/developers/webhooks/](/developers/webhooks/) */}
+
+Need help? See [/resources/troubleshooting/](/resources/troubleshooting/) or **join our Telegram community**: [t.me/c12s_ai](https://t.me/c12s_ai)
