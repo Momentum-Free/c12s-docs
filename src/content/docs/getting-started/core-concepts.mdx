@@ -1,0 +1,213 @@
+---
+title: Core Concepts
+description: Learn the core ideas and nomenclature behind C12s.
+sidebar:
+  order: 2
+---
+
+This page defines the terms you’ll see across the product so teams use the **same language** when configuring, operating, and measuring your AI agent.
+
+> Skimming through? Start with **Organization, Community, Agent, Knowledge Base**, then jump to **Overrides** and **Moderation**.
+
+---
+
+## Glossary index
+
+**People & containers:**  
+[Organization](#organization) · [Organization Members](#organization-members) · [Company](#company-billing)
+
+**Community & platforms:**  
+[Community](#community) · [Community Platform](#community-platform) · [Community Rules](#community-rules)
+
+**AI & knowledge:**  
+[Agent](#agent) · [Knowledge Base](#knowledge-base) · [Knowledge Entry](#knowledge-entry) · [Knowledge Source](#knowledge-source) · [Shared Knowledge Base](#shared-knowledge-base) · [Auto-Learn](#auto-learn) · [Semantic Similarity](#semantic-similarity) · [Web Search](#web-search) · [Allowlist vs Denylist](#allowlists-whitelists-vs-denylists-blacklists)
+
+**Control & safety:**  
+[Overrides](#overrides) · [Content Moderation](#content-moderation) · [AI Rules](#ai-rules) · [Regular (non-AI) Rules](#regular-non-ai-rules) · [Spam vs Scams](#spam-vs-scams) · [Sentiment](#sentiment)
+
+**Visibility & outcomes:**  
+[Dashboard](#dashboard) · [Analytics](#analytics) · [Reports](#reports) · [Hotspots](#hotspots) · [Unanswered Questions](#unanswered-questions)
+
+---
+
+## Organization
+**What it is (general):** A workspace/brand that holds people, settings, and connected assets.  
+**In C12s:** Your top-level container for **communities** (under the same brand), **knowledge**, **moderation policies**, **analytics**, and **billing**. You can belong to multiple organizations and switch via the org switcher (top-right).
+
+**You’ll use it to:**  
+- Configure brand details (name, description, logo) and global AI defaults.  
+- Invite teammates and assign roles.  
+- Connect communities (Discord/Telegram/Slack).  
+- Manage plan, usage, and invoices.
+
+---
+
+### Organization Members
+**What it is (general):** People with access to an organization, each with a role.  
+**In C12s:** Members inherit permissions based on role. Typical roles:
+
+- **Administrators** — full control: billing, invites, platform connections, global AI defaults, policies, and data exports.  
+- **Community Managers** — day-to-day configuration: knowledge base, channel overrides, moderation rules, analytics, and reports.  
+- **Moderators** — operational tools: review support requests and unanswered questions, review flagged items, submit knowledge improvements, view relevant dashboards.
+
+> For now, all organization members are considered 'Administrators'. We will introduce RBAC (role-based access controls) in the future.
+
+---
+
+### Company
+**What it is (general):** Legal entity used for invoicing and tax details.  
+**In C12s:** The billing profile (company name, VAT/tax ID, address, plan) associated with an organization’s subscription. This doesn’t affect community behavior or permissions. One company can have multiple Organizations (e.g. marketing agencies).
+
+---
+
+## Community
+**What it is (general):** A real-time space where your users chat about your product/brand/project.  
+**In C12s:** A **connected Discord server, Telegram group, or Slack workspace** your Agent can read from and (optionally) reply in.
+
+### Community Rules
+Your server/group rules (e.g., “no soliciting or commercial messages, no harrassment, etc.”) that users must follow within the community's chats. If "Self-moderation" is enabled, users can report other user's messages to the Agent. It'll then assess if the contents of the message break any of the rules and take the appropriate action.
+
+### Community Platform
+The provider hosting the community: **Discord**, **Telegram**, or **Slack**. Platform choice determines available permissions, commands (e.g., `/verify`), and some moderation capabilities.
+
+---
+
+## Agent
+**What it is (general):** The AI assistant that reads and analyses messages, answers questions, and moderates content.  
+**In C12s:** Your org’s configured AI agent with a **Personality** and different **modes**:
+
+- **Personality** — writing style and tone (e.g., *Short & Friendly*).  
+- **Read / Write / Learn** — global defaults:
+  - **Read**: allowed to read messages (needed to answer questions, moderate content and generate analytics).  
+  - **Write**:  
+    - *Disabled*: the agent never replies to users.  
+    - *Passive* (default on free): answers only when explicitly prompted (e.g., mention or command).  
+    - *Active* (recommended on paid): answers users automatically when confident.  
+    - *Thread* (recommended on Discord): always creates a thread (or replies in a thread created by the user (forums)) for every message sent in a dedicated "#ai-support" channel.
+    - Staff messages are never auto-answered; staff must prompt explicitly (either using the `/ask` command or by mentioning the bot).  
+  - **Auto-Learn**: can learn from staff replies to unanswered questions.
+
+**Where:** **Settings → AI Configuration** (global) and **Overrides** (per channel/category/group).
+
+---
+
+## Knowledge Base
+**What it is (general):** Canonical information used to answer questions (such as FAQs, docs, etc.).  
+**In C12s:** A curated set of **Entries** and **Sources** the Agent consults to produce accurate replies.
+
+- Keep it concise and authoritative/factual.  
+- Start with 10–20 topics covering ~80% of questions.  
+- Update weekly based on list of **Unanswered Questions** and analytics.
+
+### Knowledge Entry
+A **curated topic** you create manually:  
+- **Answer** — the authoritative explanation.  
+- **Questions** — example phrasings users might ask; used for **semantic matching**.  
+Good entries are relatively short (1-3 paragraphs), source-linked, and neutrally written.
+
+### Knowledge Source
+An **imported artifact** (URL, docs page, PDF, etc.). Sources can be **Live** (re-crawled/index every period of time) or **Imported** (one-time import).
+While **Imported** sources can be changed manually after import (but won't be updated over time), **Live** sources cannot be changed as they are re-crawled/indexed automatically.
+The content captured from **Live** sources can still be reviewed though.
+
+### Shared Knowledge Base
+A KB that can be **reused** across multiple Organizations (e.g., ecosystems, marketing agencies, venture studios, etc.). This avoids duplication, keeps answers consistent, and allows for a single source of truth.
+
+Note: This feature is still in planning and not yet available.
+
+### Auto-Learn
+When enabled, the Agent treats qualified **staff replies** to previously detected Unanswered Questions as teachable examples to improve future answers. New knowledge appears in your KB for review and refinement. Turn **Learn** off in sensitive/private channels (staff rooms, support tickets, etc.) via **Overrides**.
+
+---
+
+## Web Search
+**What it is (general):** Let the Agent search the web at answer time.  
+**In C12s:** (Paid) Let the Agent search **allowed domains** (or the entire web) so you don’t have to ingest every page. Useful for large docs/blogs that change often.
+
+### Allowlists (whitelists) vs. Denylists (blacklists)
+- **Allowlist** — domains the Agent is allowed to search within (e.g., `docs.example.com`, `blog.example.com`). Everything else is blocked.  
+- **Denylist** — domains the Agent will ignore for search, or subpaths or pages within allowed domains to **exclude** (e.g., `/changelog/older/*`).  
+Start with **a small allowlist** and add denylist entries only when needed; or if you are bold, only use a denylist and exclude the domains you don't want the Agent to search for information (such as your competitors, or untrustworthy news outlets (e.g. The Onion)).
+
+---
+
+## Overrides
+**What it is (general):** Local exceptions to a global setting.  
+**In C12s:** Per-channel / category / group settings that **override** global AI defaults. You can change **Personality**, **Read/Write/Learn**, and other behaviors for specific spaces.
+
+**Examples:**  
+- Disable **Write** in `#announcements`.  
+- Use a **Formal** personality in support channels and **Playful** in general chat.  
+- Turn **Learn** off in private staff rooms.
+
+**Where:** **Settings → AI Configuration → Overrides** (select platform to target).
+
+---
+
+## Content Moderation
+**What it is (general):** Detecting and acting on unwanted or harmful content.  
+**In C12s:** A combination of **AI Policies** (language understanding) and **Logic Rules** (deterministic checks) that trigger **Actions**: warn, delete, mute, ban, or escalate to humans, etc.
+
+### AI Policies
+Model-driven classifiers that detect intents and patterns (e.g., phishing attempts, impersonation, wallet-drainer lures, NSFW, hate/harassment). Tunable sensitivity and actions.
+
+### Logic Rules
+Deterministic checks like **RegEx/keywords**, **link filters**, **rate & burst limits**, or **role-gated posting**. Ideal for crystal-clear policies (“no links in #general” or “no soliciting in #support”).
+
+> Use **Overrides** to restrict where moderation runs.
+
+---
+
+## Sentiment
+**What it is (general):** An estimate of message tone (positive/neutral/negative).  
+**In C12s:** Aggregated sentiment over time by **channel**, **topic**, or **tag** to spot trends and correlate with releases or incidents.
+
+---
+
+## Semantic Similarity
+**What it is (general):** Vector-based matching to find semantically similar text (for RAG and other workflows).  
+**In C12s:** Used to match **user questions** with **KB Entries/Sources**. You’ll see similarity scores in semantic search; a min. of ~**70%+** is required to match or it is ignored. Adjust questions to reduce false positives/negatives. Typically longer questions reduce false positives (AI triggering on a question **it doesn't** have an answer to in the KB), while shorter/broader questions will increase the hit rate (reducing false negatives). Ideally, a user question should never match an existing question (within an entry) if said Entry doesn't respond to the question (otherwise we're feeding irrelevant information to the AI for processing).
+
+---
+
+## Spam vs Scams
+- **Spam** — noisy or low-value promotional/repetitive content. Actions often include: warn, delete, temp-mute.  
+- **Scams** — malicious content aiming to deceive/steal (phishing sites, fake support, “airdrop” wallet drainers). Actions often include: delete, ban, escalate, auto-report internally.
+
+AI Policies help distinguish the two; configure actions conservatively first and monitor log channels and analytics dashboards.
+
+---
+
+## Dashboard
+**What it is (general):** An at-a-glance operational view.  
+**In C12s:** We have several dashboards, including the main one (which only lists Unanswered Questions, ordered by most recent), **Analytics** (graphs & activity hotspots), and **Billing** (plan usage and management, etc.).
+
+---
+
+## Analytics
+**What it is (general):** Metrics and trends over time.  
+**In C12s:** Volume and coverage of AI answers, moderation actions, sentiment trends, and engagement. Use it to prioritize KB updates and policy changes.
+
+---
+
+## Reports
+**What it is (general):** Periodic summaries sent to stakeholders.  
+**In C12s:** Scheduled digests or exports (e.g., weekly) covering **answers, gaps, sentiment, and incidents**. Great for leadership updates and vendor reviews.
+
+---
+
+## Hotspots
+**What it is (general):** Areas requiring attention, or displaying activity patterns over time.  
+**In C12s:** Channels/topics/time windows with **unusual spikes** in unanswered questions, negative sentiment, or moderation actions. Use hotspots to allocate staff time and expand the KB.
+
+---
+
+## Unanswered Questions
+**What it is (general):** Questions the Agent didn’t answer due to lack of knowledge.  
+**In C12s:** A list in the main dashboard that shows missed queries with context. Use it to **add or refine** Knowledge Entries and improve **semantic coverage**.
+
+**Related:**  
+- **Quickstart** → [/getting-started/quickstart/](/getting-started/quickstart/)  
+- **Knowledge Base** → see *Do more with C12s* on the homepage  
+- **Moderation** → [/moderation/spam-detection/](/moderation/spam-detection/)  
+- **Dashboards** → [/analytics/dashboards/](/analytics/dashboards/)
