@@ -15,14 +15,14 @@ export default [
       { slug: 'getting-started/core-concepts' },
     ],
   },
-/*  {
+  {
     label: 'Platform setup',
     items: [
       { label: 'Discord', autogenerate: { directory: 'platforms/discord', collapsed: false } },
       { label: 'Telegram', autogenerate: { directory: 'platforms/telegram', collapsed: false } },
       { label: 'Slack', badge: { text: 'Beta', variant: 'tip' }, autogenerate: { directory: 'platforms/slack', collapsed: true } },
-    ],
-  },
+    ]
+/*  },
   { label: 'Knowledge Base & AI', autogenerate: { directory: 'knowledge', collapsed: false } },
   { label: 'Moderation & Safety', autogenerate: { directory: 'moderation', collapsed: false } },
   { label: 'Automations & Workflows', autogenerate: { directory: 'automations', collapsed: true } },
@@ -51,6 +51,6 @@ export default [
       { label: 'Status Page', link: 'https://status.c12s.ai', attrs: { target: '_blank', rel: 'noopener' } },
       { label: 'Open Dashboard', link: 'https://app.c12s.ai', attrs: { target: '_blank', rel: 'noopener' } },
       { label: 'Contact Support', link: '/support/' },
-    ],
-  },*/
+    ],*/
+  },
 ] satisfies Sidebar;
