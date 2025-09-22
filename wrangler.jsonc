@@ -34,9 +34,15 @@
 	"workers_dev": false,
 	"env": {
 		"production": {
+			"vars": {
+				"ENVIRONMENT": "production",
+			},
 			"route": "https://docs.c12s.ai/"
 		},
 		"staging": {
+			"vars": {
+				"ENVIRONMENT": "staging",
+			},
 			"routes": [
 				"https://stg.docs.c12s.ai/",
 				"https://stg-docs.c12s.ai/"
