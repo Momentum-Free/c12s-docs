@@ -1,0 +1,58 @@
+---
+title: Commands
+description: Learn about the available commands for the c12s bot in discord.
+sidebar:
+  order: 2
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+## 1) /verify
+
+The `/verify` command is used to verify your identity and link your discord account to your c12s account.
+
+To learn more about the `/verify` command and how its used to its fullest, please visit the [Install](/platforms/discord/install/) page.
+
+## 2) /add-knowledge
+
+The `/add-knowledge` command is used to create/add knowledge, via discord, to your c12s organization.
+
+This command has 3 arguments:
+
+| Name | Type | Description |
+| ---- | ----------- | ----------- |
+| `Title` | Mandatory | The title you wish the knowledge to have |
+| `Answer` | Mandatory | The answer the bot should have as a basis to answer users |
+| `Source` | Optional | A source of knowledge the bot can use to create more information for the answer |
+
+**insert GIF here**
+
+<Badge text="Note:" variant="tip" /> Keep in mind that you will still need to acess the [C12s App](https://app.c12s.ai) to generate questions to enable them to the bots knowledge base.
+
+## 3) /add-override
+
+The `/add-overrides` command allows you to create overrides for a specific channel in your discord server.
+
+This command has 2 arguments:
+
+| Name | Type | Description |
+| ---- | ----------- | ----------- |
+| `Channel` | Mandatory | The channel you wish to create overrides for |
+| `personality` | Optional | You can select the type of personality you wish the bot to have in its answers |
+| `read` | Optional | not sure need to ask |
+| `write` | Optional | You can select how the bot interacts with the channel and the questions |
+| `learn` | Optional | If the bot should automatically create new knowledge based on the questions asked |
+
+**insert GIF here**
+
+## 4) /ask
+
+The `/ask` command is used to ask a question to the c12s bot.
+
+**insert GIF here**
+
+## 5) /sync
+
+The `/sync` command is used to sync the c12s discord with any changes that you made in the [C12s App](https://app.c12s.ai).
+
+**insert GIF here**
