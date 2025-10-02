@@ -5,7 +5,7 @@ sidebar:
   order: 1
 ---
 
-import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+import { Steps, Tabs, TabItem, Badge } from '@astrojs/starlight/components';
 import { Video } from '@/components/video';
 
 import AddKnowledgeVideo from '@/assets/videos/getting-started/add-knowledge.mp4';
@@ -104,6 +104,8 @@ Go to **Knowledge Base** and start with either path:
 
 * Click **+ Knowledge** → write a concise **Answer** for one topic (pricing, access, roadmap, troubleshooting, policies, etc.).
 * Add a few **Questions** that users might ask regarding this piece of Knowledge (suggestion: use **Generate Questions** to get automatically get a list of questions you can edit).
+
+<Badge text="Tip" variant="tip" /> See [Core Concepts - Knowledge Entry](/getting-started/core-concepts/#knowledge-entry) for a full explanation of all fields.
 
 <Video
   src={AddKnowledgeVideo}

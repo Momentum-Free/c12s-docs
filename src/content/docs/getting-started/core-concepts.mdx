@@ -5,6 +5,8 @@ sidebar:
   order: 2
 ---
 
+import { Badge } from '@astrojs/starlight/components';
+
 This page defines the terms you’ll see across the product so teams use the **same language** when configuring, operating, and measuring your AI agent.
 
 > Skimming through? Start with **Organization, Community, Agent, Knowledge Base**, then jump to **Overrides** and **Moderation**.
@@ -62,7 +64,7 @@ This page defines the terms you’ll see across the product so teams use the **s
 
 ## Community
 **What it is (general):** A real-time space where your users chat about your product/brand/project.  
-**In C12s:** A **connected Discord server, Telegram group, or Slack workspace** your Agent can read from and (optionally) reply in.
+**In C12s:** A **connected Discord community, Telegram group, or Slack workspace** your Agent can read from and (optionally) reply in.
 
 ### Community Rules
 Your server/group rules (e.g., “no soliciting or commercial messages, no harrassment, etc.”) that users must follow within the community's chats. If "Self-moderation" is enabled, users can report other user's messages to the Agent. It'll then assess if the contents of the message break any of the rules and take the appropriate action.
@@ -84,7 +86,7 @@ The provider hosting the community: **Discord**, **Telegram**, or **Slack**. Pla
     - *Passive* (default on free): answers only when explicitly prompted (e.g., mention or command).  
     - *Active* (recommended on paid): answers users automatically when confident.  
     - *Thread* (recommended on Discord): always creates a thread (or replies in a thread created by the user (forums)) for every message sent in a dedicated "#ai-support" channel.
-    - Staff messages are never auto-answered; staff must prompt explicitly (either using the `/ask` command or by mentioning the bot).  
+    - **NOTE**: Staff messages are never auto-answered; staff must prompt explicitly (either using the `/ask` command or by mentioning the bot).  
   - **Auto-Learn**: can learn from staff replies to unanswered questions.
 
 **Where:** **Settings → AI Configuration** (global) and **Overrides** (per channel/category/group).
@@ -100,20 +102,25 @@ The provider hosting the community: **Discord**, **Telegram**, or **Slack**. Pla
 - Update weekly based on list of **Unanswered Questions** and analytics.
 
 ### Knowledge Entry
-A **curated topic** you create manually:  
-- **Answer** — the authoritative explanation.  
+A **curated topic** you create manually with these components:  
+- **Title** — the title of the entry.  
+- **Source** (_optional_) — The source of the knowledge, this is used for citations and should be a URL.  
 - **Questions** — example phrasings users might ask; used for **semantic matching**.  
+- **Answer** — the content which the agent will learn from to answer users' questions.  
+
 Good entries are relatively short (1-3 paragraphs), source-linked, and neutrally written.
+
+<Badge text="Tip" variant="tip" /> After writing or pasting an Answer, click on the "Generate Questions" button to generate example questions automatically.
+
+<Badge text="Note" variant="tip" /> When an Entry is set to 'FAQ mode', the bot will literally paste the 'Answer' with no AI-generation. Individual Entries can also be turned off (e.g. for maintenance, or when needing an update).
 
 ### Knowledge Source
 An **imported artifact** (URL, docs page, PDF, etc.). Sources can be **Live** (re-crawled/index every period of time) or **Imported** (one-time import).
 While **Imported** sources can be changed manually after import (but won't be updated over time), **Live** sources cannot be changed as they are re-crawled/indexed automatically.
 The content captured from **Live** sources can still be reviewed though.
 
-### Shared Knowledge Base
+### Shared Knowledge Base [^1]
 A KB that can be **reused** across multiple Organizations (e.g., ecosystems, marketing agencies, venture studios, etc.). This avoids duplication, keeps answers consistent, and allows for a single source of truth.
-
-Note: This feature is still in planning and not yet available.
 
 ### Auto-Learn
 When enabled, the Agent treats qualified **staff replies** to previously detected Unanswered Questions as teachable examples to improve future answers. New knowledge appears in your KB for review and refinement. Turn **Learn** off in sensitive/private channels (staff rooms, support tickets, etc.) via **Overrides**.
@@ -133,7 +140,7 @@ Start with **a small allowlist** and add denylist entries only when needed; or i
 
 ## Overrides
 **What it is (general):** Local exceptions to a global setting.  
-**In C12s:** Per-channel / category / group settings that **override** global AI defaults. You can change **Personality**, **Read/Write/Learn**, and other behaviors for specific spaces.
+**In C12s:** Per-channel / category / group settings that **override** global AI defaults. You can change **Personality**, **Read/Write/Learn** (*see [Agent](#agent)*), and other behaviors for specific spaces.
 
 **Examples:**  
 - Disable **Write** in `#announcements`.  
@@ -211,3 +218,9 @@ AI Policies help distinguish the two; configure actions conservatively first and
 - **Knowledge Base** → see *Do more with C12s* on the homepage  
 - **Moderation** → [/moderation/spam-detection/](/moderation/spam-detection/)  
 - **Dashboards** → [/analytics/dashboards/](/analytics/dashboards/)
+
+---
+
+**Footnotes**
+
+[^1]: This feature is still in planning and not yet available.
