@@ -1,0 +1,58 @@
+---
+title: Content Moderation
+description: Detect spam/scams and enforce policy-driven actions.
+sidebar:
+  order: 1
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+## 1) Creating a new Moderation Rule
+To create new moderation policies & rules you need to go to the top menu and press the "Moderation Policies & Rules" option, in order to be redirected to the moderation page. On this page are are able to create rules, edit them or delete them.
+
+In order to add a new rule you need to press the "+Policy/Rule" button, after pressing it you will be prompted with two options, the Pattern Rule and the AI Policy.
+
+*insert gif here*
+
+### 1.1) Pattern Rule
+
+In the pattern rule you need to define one (or more) regex patterns that will be used to moderate all chats/groups where the bot is active. In case you have the C12s bot in a telegram group, you can use the "Match Stories" option to apply the regex to users stories.
+
+*add video here*
+
+In case you want to add exceptions to the rule, you can enable the "Use Excluded Regex" option and add one (or more)) regex patterns that will be used as exclusions to the rule you are creating.
+
+*add video here*
+
+Now regarding the actions that will be taken when the rule is triggered, you can select the following actions:
+
+* Ban User
+* Delete Message
+* Time Out Member for 30 Min
+* Kick user
+
+And finally you can decide if the rule should be applied to group/server admins and if you wish to be notified everytime the rule is triggered.
+
+### 1.2) AI Policy
+
+The AI policy rule is more simplified in terms of configuration than the pattern rule. Here to create a rule you need to define the one (or more) sample texts, per example "Click here to get an enormous amount of dollars", define one (or more) actions and what match score each action should have to be activated when the rule is triggered.
+
+The match options available are the following:
+
+* Ban User
+* Delete Message
+* Time Out Member for 30 Min
+* Kick user
+
+And like the pattern rule, you can also define if the rule should be applied to group/server admins and if you wish to be notified everytime the rule is triggered.
+
+Example:
+>  Lets suppose you want to create an AI policy to detect possible scam messages, you could define the following actions:
+> 
+>  * Ban User - 80%
+>  * Delete Message - 60%
+>  * Time Out Member for 30 Min - 60%
+>
+>  What the options in this example mean is, if the message sent by an user has a 60% match with the sample texts you defined, the bot will only delete the message and time out the user, however if the message reaches a match of 80% the user will be banned.
+
+

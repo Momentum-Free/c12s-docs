@@ -23,11 +23,12 @@ export default [
       { label: 'Slack', badge: { text: 'Beta', variant: 'tip' }, autogenerate: { directory: 'platforms/slack', collapsed: true } },
     ]
  },
-  { label: 'Knowledge Base & AI', autogenerate: { directory: 'knowledge', collapsed: false } }
- /* 
+  { label: 'Knowledge Base & AI', autogenerate: { directory: 'knowledge', collapsed: false } },
   { label: 'Moderation & Safety', autogenerate: { directory: 'moderation', collapsed: false } },
-  { label: 'Automations & Workflows', autogenerate: { directory: 'automations', collapsed: true } },
   { label: 'Reporting & Analytics', autogenerate: { directory: 'analytics', collapsed: true } },
+  { label: 'Account & Billing', autogenerate: { directory: 'account', collapsed: true } }
+/* 
+  { label: 'Automations & Workflows', autogenerate: { directory: 'automations', collapsed: true } },
   { label: 'Integrations', autogenerate: { directory: 'integrations', collapsed: true } },
   {
     label: 'Developers',
@@ -39,7 +40,6 @@ export default [
       'developers/sdks',
     ],
   },
-  { label: 'Account & Billing', autogenerate: { directory: 'account', collapsed: true } },
   { label: 'Security & Compliance', autogenerate: { directory: 'security', collapsed: true } },
   {
     label: 'Resources',
