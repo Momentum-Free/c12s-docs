@@ -6,6 +6,9 @@ sidebar:
 ---
 
 import { Badge, LinkCard } from '@astrojs/starlight/components';
+import { Video } from '@/components/video';
+
+import AddKnowledgeVideo from '@/assets/videos/platforms/discord/add-knowledge.mp4';
 
 ## 1) /verify
 
@@ -25,7 +28,13 @@ This command has 3 arguments:
 | `Answer` | Mandatory | The actual knowledge the bot will learn and use to answer the users' questions |
 | `Source` | Optional | A link that references the source of the knowledge (used for citations) |
 
-**insert GIF here**
+<Video
+  src={AddKnowledgeVideo}
+  title='Adding a Knowledge Entry to the Knowledge Base Via Discord'
+  autoPlay
+  loop
+  controls
+/>
 
 ## 3) /add-override
 
@@ -48,7 +57,7 @@ This command has 5 arguments:
 >
 </LinkCard>
 
-**insert GIF here**
+![Use the /add-override command](src/assets/screenshots/platforms/discord/add-override.gif)
 
 ## 4) /ask
 
@@ -56,10 +65,10 @@ The `/ask` command is used to explicitly ask a question to the C12s bot.
 
 <Badge text="Note" variant="tip" /> Organizations under the Free plan have to use the `/ask` command (or @tag the bot) to ask questions to it, while organizations under any paid plan do not require this command nor mention (users can simply ask a question in natural language and the bot will automatically pick it up and answer if it has knowledge to do so).
 
-**insert GIF here**
+![Use the /ask command](src/assets/screenshots/platforms/discord/ask.gif)
 
 ## 5) /sync
 
 The `/sync` command is used to force-sync the C12s Discord with any changes that you made in the [C12s App](https://app.c12s.ai).
 
-**insert GIF here**
+![Use the /sync command](src/assets/screenshots/platforms/discord/sync.gif)

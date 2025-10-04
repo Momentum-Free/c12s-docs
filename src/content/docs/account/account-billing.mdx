@@ -6,16 +6,19 @@ sidebar:
 ---
 
 import { Badge } from '@astrojs/starlight/components';
+import { Video } from '@/components/video';
+
+import planupgrade from 'src/assets/videos/account/plan-upgrade.mp4';
 
 ## Account & Billing
 
 To access the billing page of your organization you need to hover your mouse over the "Settings" button on the top menu and select the "Billing" option.
 
-*Insert Gif*
+![Open your organization billing page](src/assets/screenshots/account/open-billing.gif)
 
 Here you can check your current subscription plan, and the how far you are from reaching the limit of analyzed messages and answers per month.
 
-*Insert Image here*
+![See your organization limits](src/assets/screenshots/account/account-limits.png)
 
 Below the current plan description you will have the "Upgrade Now" option, this will redirect you to the billing details, here you are able to:
  * update or cancel your C12s subscription
@@ -26,12 +29,18 @@ Below the current plan description you will have the "Upgrade Now" option, this 
 
 If you select the "Update subscription" option you will be shown all available plans (all with monthly or yearly billing options) and the respective limits for each plan, after you select the plan that fits your organization needs, you will be redirected to the payment screen and then to the order confirmation.
 
-*Insert video here*
+<Video
+  src={planupgrade}
+  title='How to change your C12s plan'
+  autoPlay
+  loop
+  controls
+/>
 
 After this proccess is finished your C12s subscription will be updated and you will have access to all the features of the selected plan.
 
 ### Failed renewal
 
-In case the renewal subscription fails, (...) 
+In case the renewal subscription fails, you will receive a notification inside your [C12s App](https://app.c12s.ai), informing you of the billing issues, and if you do not correct the issue you will be downgraded to the Free plan.
 
 
