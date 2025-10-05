@@ -9,7 +9,9 @@
     "hot": "astro dev",
 		"dev": "astro build && wrangler dev",
 		"start": "wrangler dev",
-		"astro": "astro"
+		"astro": "astro",
+		"generate-types": "wrangler types",
+		"type-check": "generate-types && tsc"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.5.1",
