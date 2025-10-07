@@ -11,8 +11,6 @@ import { Video } from '@/components/video';
 import AddKnowledgeVideo from 'src/assets/videos/knowledge/import-knowledge.mp4';
 import knowledgebase from 'src/assets/videos/knowledge/Knowledge-base.mp4';
 import addManualKnowledge from 'src/assets/videos/getting-started/add-knowledge.mp4';
-import search from 'src/assets/videos/knowledge/search.mp4';
-import deleting from 'src/assets/videos/knowledge/deleting.mp4';
 
 ## Knowledge Page
 
@@ -79,13 +77,7 @@ After the knowledge entries are generated, you can edit them at any time, you ju
 
 To delete a knowledge entry you need to press the trash icon located in the right side of each entry.
 
-<Video
-  src={deleting}
-  title='Deleting a Knowledge Entry'
-  autoPlay
-  loop
-  controls
-/>
+![Delete knowledge entry](src/assets/screenshots/knowledge/deleting.gif)
 
 ## 4) Ask questions/ Search
 
@@ -94,10 +86,4 @@ In the knowledge base page you have a search bar in the top part of the page, fo
 1) The "Regular Text Search" that works like any normal search feature
 2) The "AI Semantic Search", this option will grab the text you inserted in the search bar and will compare it to all the knowledge entries that exist in your organization, and will give you a score based on how much the entries answer your question.
 
-<Video
-  src={search}
-  title='Knowledge Base Search'
-  autoPlay
-  loop
-  controls
-/>
+![Search in the knowledge base](src\assets\screenshots\knowledge\search.gif)

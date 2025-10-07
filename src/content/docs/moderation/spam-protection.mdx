@@ -8,22 +8,31 @@ sidebar:
 import { Badge } from '@astrojs/starlight/components';
 import { Video } from '@/components/video';
 
+import moderation from 'src/assets/videos/moderation/ai_policy.mp4';
+import patternrule from 'src/assets/videos/moderation/pattern-rule.mp4';
+
 ## 1) Creating a new Moderation Rule
 To create new moderation policies & rules you need to go to the top menu and press the "Moderation Policies & Rules" option, in order to be redirected to the moderation page. On this page are are able to create rules, edit them or delete them.
 
 In order to add a new rule you need to press the "+Policy/Rule" button, after pressing it you will be prompted with two options, the Pattern Rule and the AI Policy.
 
-*insert gif here*
+![Open your moderation page](src/assets/screenshots/moderation/moderation.gif)
 
 ### 1.1) Pattern Rule
 
 In the pattern rule you need to define one (or more) regex patterns that will be used to moderate all chats/groups where the bot is active. In case you have the C12s bot in a telegram group, you can use the "Match Stories" option to apply the regex to users stories.
 
-*add video here*
+<Video
+  src={patternrule}
+  title='Adding a Moderation Rule to the Moderation List'
+  autoPlay
+  loop
+  controls
+/>
 
-In case you want to add exceptions to the rule, you can enable the "Use Excluded Regex" option and add one (or more)) regex patterns that will be used as exclusions to the rule you are creating.
+In case you want to add exceptions to the rule, you can enable the "Use Excluded Regex" option and add one (or more) regex patterns that will be used as exclusions to the rule you are creating.
 
-*add video here*
+![Add an exception to the rule](src\assets\screenshots\moderation\pattern-exception.gif)
 
 Now regarding the actions that will be taken when the rule is triggered, you can select the following actions:
 
@@ -50,10 +59,16 @@ And like the pattern rule, you can also define if the rule should be applied to 
 Example:
 >  Lets suppose you want to create an AI policy to detect possible scam messages, you could define the following actions:
 > 
->  * Ban User - 80%
->  * Delete Message - 60%
->  * Time Out Member for 30 Min - 60%
+>  * Ban User - 90%
+>  * Delete Message - 70%
+>  * Time Out Member for 30 Min - 70%
 >
->  What the options in this example mean is, if the message sent by an user has a 60% match with the sample texts you defined, the bot will only delete the message and time out the user, however if the message reaches a match of 80% the user will be banned.
+>  What the options in this example mean is, if the message sent by an user has a 70% match with the sample texts you defined, the bot will only delete the message and time out the user, however if the message reaches a match of 90% the user will be banned.
 
-
+<Video
+  src={moderation}
+  title='Adding a Moderation Rule to the Moderation List'
+  autoPlay
+  loop
+  controls
+/>
