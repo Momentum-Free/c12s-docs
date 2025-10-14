@@ -1,0 +1,35 @@
+---
+title: Integrations
+description: Manage your integrations with the C12s bot.
+sidebar:
+  order: 1
+---
+
+import { Badge } from '@astrojs/starlight/components';
+import { Video } from '@/components/video';
+
+import DemoVideo from 'src/assets/videos/organization/integrations/demo.mp4';
+
+## Integrations
+ 
+ In the integrations part of the organization page you are able to create or manage the existing connections your organization has to the C12s bot, these connections can be Discord, Telegram or Slack. The amount of connections you can have are dependent on the plan you currently have active.
+
+![Hover connection options](src/assets/screenshots/platforms/discord/connection-hover.gif)
+
+To learn more about how to connect your Organization to the C12s bot, please click here for [Discord](/platforms/discord/install/) or here for [Telegram](/platforms/telegram/install/).
+
+## Demo
+
+The demo mode is a feature that allows you to connect the C12s bot to a Discord server or to a Telegram group to test the Organization knowledge base, however, this demo connection will not count to the number of connected organizations allowed by your C12s plan, but, keep in mind that you cannot create a demo connection with a server/group that has more than 10 members (Bots do not count for the 10 memmbers limit).
+
+To create a demo connection, its a similar process to the normal [Discord](/platforms/discord/install/) or [Telegram](/platforms/telegram/install/) connection, but after selecting the platform you wish to connect you will need to select the box that says "Demo Mode".
+
+<Video
+  src={DemoVideo}
+  title='Demo Connection'
+  autoPlay
+  loop
+  controls
+/>
+
+After the demo connection is finished, you can use the C12s bot like you would use it in a normal connection.
