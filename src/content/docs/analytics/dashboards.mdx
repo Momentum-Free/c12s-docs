@@ -8,30 +8,33 @@ sidebar:
 import { Badge } from '@astrojs/starlight/components';
 import { Video } from '@/components/video';
 
-## Accessing your organization statistics
+## Statistics
 
 To access your organization statistics you need to press the "Stats" button that is located on the top menu.
 
-On this page you will have access to some relevant statistics about the C12s bot performance and some metrics regarding the community.
+You'll find some relevant statistics about the C12s bot performance and some metrics regarding the community.
 
 ![Open your organization statistics page](src/assets/screenshots/analytics/stats.gif)
 
 ### AI Statistics
-In the top part of the page you will be able to look at the AI statistics, for now, these are regarding the total messages the bot has answered and the total messages sent in the community and a comparison between the current and past week of the bot activity.
+In the top part of the page you will be able to look at the AI statistics.  
+For now, the only graph available displays the total number of messages sent across all connected communities, which of these were detected as questions, and which of those questions was C12s able to answer automatically.  
+We also display a line comparing the current and past week of the bot's performance.
 
 ![AI Statistics](src/assets/screenshots/analytics/ai-statistics.png)
 
-On this graph you are also able to hover your cursor on top of it to see the exact number of messages the bot has answered on that specific day.
+You are also able to hover on top of it to see the exact number of messages the bot has answered for that specific day.
 
 ![c12s-perfomance](src/assets/screenshots/analytics/c12s-perfomance.gif)
 
 ### Marketing Statistics
-In the bottom part of the page you can observe the marketing statistics, for now, you have two graphs:
+In the bottom part of the page you can observe the marketing statistics.  
+As of the time of writing, there are two graphs:
 
-1) Community Engagement - Here it is shown the total users that are in the community and the amount of users that are active, here you can also hover your cursor on top of the graph to see more detailed information.
+1) **Community Engagement** - Total unique users across all connected communities and how many are active (weekly), here you can also hover on top of the graph to see more detailed information.
 
 ![community-engagement](src/assets/screenshots/analytics/community-engagement.gif)
 
-2) Community activity - This graph shows a map of the community activity in terms of sent messages, to be able to observe what are the most and least active time periods in your community.
+2) **Community Activity** - A map of sent messages by hour, to observe patterns in user activity (such as what are the most and least active time periods in your community per day (horizontally) and per hour (vertically)).
 
 ![community-activity](src/assets/screenshots/analytics/community-activity.gif)

@@ -8,38 +8,37 @@ sidebar:
 import { Badge } from '@astrojs/starlight/components';
 import { Video } from '@/components/video';
 
-import planupgrade from 'src/assets/videos/account/plan-upgrade.mp4';
+import planUpgradeVideo from 'src/assets/videos/account/plan-upgrade.mp4';
 
 ## Account & Billing
 
-To access the billing page of your organization you need to hover your mouse over the "Settings" button on the top menu and select the "Billing" option.
+Under the "Settings" button on the top menu, pick the "Billing" menu option.
 
 ![Open your organization billing page](src/assets/screenshots/account/open-billing.gif)
 
-Here you can check your current subscription plan, and the how far you are from reaching the limit of analyzed messages and answers per month.
+You can see your current subscription plan, how far you've used it, and how far you are from reaching the limits of analyzed messages and answers per month.
 
 ![See your organization limits](src/assets/screenshots/account/account-limits.png)
 
-Below the current plan description you will have the "Upgrade Now" option, this will redirect you to the billing details, here you are able to:
+Below the current plan description, you'll see an "Upgrade Now" button. This takes you to a Stripe-hosted management page where you can:
  * update or cancel your C12s subscription
  * add/remove payment methods
  * Define preferred payment method
- * Check your billing information
- * Payment history
+ * Update your company's billing information
+ * View your payment history
 
-If you select the "Update subscription" option you will be shown all available plans (all with monthly or yearly billing options) and the respective limits for each plan, after you select the plan that fits your organization needs, you will be redirected to the payment screen and then to the order confirmation.
+If you select the "Update subscription" option you will be shown all available plans (all with monthly or yearly billing options) and the respective limits for each plan. After you select the plan that fits your organization's needs, you will be redirected to the payment screen and then to the order confirmation.
 
 <Video
-  src={planupgrade}
+  src={planUpgradeVideo}
   title='How to change your C12s plan'
   autoPlay
   loop
   controls
 />
 
-After this proccess is finished your C12s subscription will be updated and you will have access to all the features of the selected plan.
+As soon as the payment is confirmed (should be immediate), your subscription will be updated and you will have access to all the features of the selected plan.
 
 ### Failed renewal
 
-
-In case the renewal subscription fails, you will receive a notification inside your [C12s App](https://app.c12s.ai?r=docs), informing you of the billing issues, and if you do not correct the issue you will be downgraded to the Free plan.
+In case the renewal subscription fails, you will receive a notification inside your [C12s webapp](https://app.c12s.ai?r=docs), informing you of the billing issues, and if you do not correct the issue you will be downgraded to the Free plan.

@@ -14,7 +14,7 @@ import addManualKnowledge from 'src/assets/videos/getting-started/add-knowledge.
 
 ## Knowledge Page
 
-To start adding knowledge to your C12s organization, you first need to go into the [C12s App](https://app.c12s.ai?r=docs) and open your organization page.
+To start adding knowledge to your C12s organization, you first need to go into the [C12s webapp](https://app.c12s.ai?r=docs) and open your organization page.
 
 Once you have your organization page open, on the top menu you will see an option called "Knowledge Base", you need to click to be redirected to your knowledge base page.
 
@@ -31,17 +31,17 @@ On this page you can do a few things, like:
 1) Create a new entry;
 2) Edit an existing entry;
 3) Delete an existing entry;
-4) Ask questions and you will be able to how much your question matches an existing entry.
+4) Test questions to see how much it matches an existing entry.
 
 ## 1) Creating knowledge entries
 
-Now to actually create a new knowledge entry you have two options:
+To create a new knowledge entry you have two options:
 
 1) Manual Process
 
 In order to manually add knowledge entries you will first need to press the "+ Knowledge" button, this will take you to the creation page.
 
-On this page you have a few fields you can fill out, but the only mandatory ones are the title and answer. The questions can be manually filled out or you can ask the AI to generate the questions based on the information you gave it. The source field is useful to keep track of where you found the information. 
+On this page you have a few fields you can fill out, but the only mandatory ones are the title and answer. The questions can be manually filled out or you can ask the AI to generate the questions based on the information you gave it. The source field is useful to keep track of where you found the information from (and is provided as citations when answering users).
 
 <Video
   src={addManualKnowledge}
@@ -51,11 +51,11 @@ On this page you have a few fields you can fill out, but the only mandatory ones
   controls
 />
 
-2) AI Process
+2) AI Import
 
-The AI process is more straight forward than the manual one, to use the AI process you need to press the "..." button right next to the "+ Knowledge" button, and select the "import" option, this will redirect you to a new page named "Data Import".
+The AI import is more straight forward than the manual one, to use it you need to press the "..." button right next to the "+ Knowledge" button, and select the "import" option, this will open a new page named "Data Import".
 
-Here you can add all the urls you find relevant to your organization, and the AI will generate the knowledge entries for you, based on the information found on the urls.
+Here you can add all the URLs you find relevant to your organization, and the AI will generate the knowledge entries for you, based on the information found on the URLs.
 
 <Video
   src={AddKnowledgeVideo}
@@ -65,11 +65,11 @@ Here you can add all the urls you find relevant to your organization, and the AI
   controls
 />
 
-After the knowledge entries are generated, you can select how the bot should use each of them, if he should ignore, use them to generate replies or to simply paste the answer you gave him.
+After the knowledge entries are generated, you can select how the bot should use each of them, if he should ignore, use them to generate replies or to simply paste the answer you gave it.
 
 ## 2) Editing knowledge entries
 
-After the knowledge entries are generated, you can edit them at any time, you just need to press the pencil icon located in the right side of each entry and it will take you back to the page you used to create it, however, this time it will be filled with all the information you added.
+After the knowledge entries are generated, you can edit them at any time, you just need to press the pencil icon located in the right side of each entry and it will take you back to the page you used to create it, however, this time it will be filled with all the information you added previously.
 
 ![Edit knowledge entry](src/assets/screenshots/knowledge/editing.gif)
 
@@ -79,11 +79,11 @@ To delete a knowledge entry you need to press the trash icon located in the righ
 
 ![Delete knowledge entry](src/assets/screenshots/knowledge/deleting.gif)
 
-## 4) Ask questions/ Search
+## 4) Ask questions/Search
 
 In the knowledge base page you have a search bar in the top part of the page, followed by two buttons:
 
-1) The "Regular Text Search" that works like any normal search feature
-2) The "AI Semantic Search", this option will grab the text you inserted in the search bar and will compare it to all the knowledge entries that exist in your organization, and will give you a score based on how much the entries answer your question.
+1) The "Regular Text Search" that works like any normal regular textual search
+2) The "AI Semantic Search", this option will grab the text you inserted in the search bar and will compare it to all the questions in each of the knowledge entries that exist in your organization, and give you a score based on how much the entries answer your question. This is how you can troubleshoot why the AI answered (or didn't answer) a specific question from a user.
 
 ![Search in the knowledge base](src/assets/screenshots/knowledge/search.gif)
