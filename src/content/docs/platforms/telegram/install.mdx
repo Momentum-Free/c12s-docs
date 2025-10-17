@@ -1,0 +1,35 @@
+---
+title: Install
+description: Learn how to Add C12s to your Telegram Group.
+sidebar:
+  order: 1
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+## 1) Adding the C12s Bot to your Telegram Group
+To add the C12s bot to your Telegram group, go over to the [C12s webapp](https://app.c12s.ai?r=docs) hover over the connect button and select "Telegram", it will open a new popup where you can press a button to open the bot's chat on Telegram, from there you can add it to your community's group. Alternatively you can press [here](https://t.me/C12sbot) to open the bot chat on Telegram.
+
+![How to Open the Bot Chat](src/assets/screenshots/platforms/telegram/opening-chat.gif)
+
+---
+## 2) Making sure the bot has the correct permissions
+
+When adding the bot to your group, by defaul it will have the following permissions activated:
+
+| Name | Description |
+| ---- | ----------- |
+| `Delete messages` | Needed for moderation (e.g. deleting messages such as spam, scams, etc.) |
+| `Ban Users` | Needed for moderation |
+| `Add members` | Needed for moderation |
+| `Invite users via Link` | Needed for moderation |
+
+<Badge text="Note" variant="tip" /> To ensure the bot functions correctly, please avoid changing the default permissions.
+
+---
+## 3) Linking the Telegram Bot to your C12s Organization
+To link the Telegram bot to your C12s organization, go over to the [C12s webapp](https://app.c12s.ai?r=docs) hover over the connect button and select "Telegram", it will open a new popup where you can copy the verification code.
+
+After copying the code, go over to Telegram open the group that you want to link, type `/verify [code]` and send. The group chat should now appear as connected in the C12s webapp.
+
+![How to link C12s Organization to Telegram](src/assets/screenshots/platforms/telegram/tg-verification.gif)

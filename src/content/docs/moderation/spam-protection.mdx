@@ -1,0 +1,78 @@
+---
+title: Content Moderation
+description: Detect spam/scams and enforce policy-driven actions.
+sidebar:
+  order: 1
+---
+
+import { Badge } from '@astrojs/starlight/components';
+import { Video } from '@/components/video';
+
+import moderation from 'src/assets/videos/moderation/ai_policy.mp4';
+import patternrule from 'src/assets/videos/moderation/pattern-rule.mp4';
+
+## Creating a new Moderation Rule
+To create new moderation policies & rules you need to go to the top menu and press the "Moderation Policies & Rules". On this page you can create, edit or delete rules.
+
+In order to add a new rule you need to press the "+ Policy/Rule" button, after pressing it you will be prompted with two options, the [Pattern Rule](#pattern-rules) and the [AI Policy](#ai-policies).
+
+![Open your moderation page](src/assets/screenshots/moderation/moderation.gif)
+
+### Pattern Rules
+
+Pattern Rules are, as the name implies, rules based on set patterns (textual, type of content, etc.). You can delete messages (and/or kick/ban the users who sent them) based on their types (forwarded message from a story, from a bot, video, image, audio, file, etc.), and their textual content. Some options are platform exclusive (such as stories on Telegram, which don't exist on Discord).
+As for the textual contents (emojis, links, mentions, hashtags, usernames, etc.), you can use Regular Expressions to match specific patterns, such as `t\.me\/` for Telegram links, `@[a-z]+bot` for Telegram bot mentions, `[a-z]+\.[a-z]{2,63}` for links, etc.
+
+<Video
+  src={patternrule}
+  title='Adding a Moderation Rule to the Moderation List'
+  autoPlay
+  loop
+  controls
+/>
+
+In case you want to add exceptions to the rule (allowing your own Telegram links, bots you use, and official social media links), you can enable the "Use Excluded Regex" option and add one (or more) regex patterns that will be used as exclusions to the rule you are creating.
+
+> **Tip:** Visit [RegEx101](https://regex101.com/) and pick "ECMAScript (JavaScript)" (_left-side_), enable the "Insensitive" flag (click in `gm`), and try one of the patterns we shared above. Then paste testing messages in the "Test String" box to see if the pattern matches or not.
+
+![Add an exception to the rule](src/assets/screenshots/moderation/pattern-exception.gif)
+
+Now regarding the actions that will be taken when the rule is triggered, you can select the following actions for now:
+
+* Ban User
+* Kick user
+* Time Out Member for 30 Min
+* Delete Message
+
+And finally you can decide if the rule should be applied to group/server admins and if you wish to be notified everytime the rule is triggered.
+
+### AI Policies
+
+The AI policy rules are more simplified in terms of configuration than the pattern rules (_albeit slightly slower to process, as pattern rules are instant_).
+To create a rule you need to provide one (or more) sample texts, such as "Click here to get an enormous amount of dollars", define one (or more) actions and what match score each action should have to be activated when the rule is triggered.
+
+The match options available are the following:
+
+* Ban User
+* Kick user
+* Time Out Member for 30 Min
+* Delete Message
+
+And like the pattern rule, you can also define if the rule should be applied to group/server admins and if you wish to be notified everytime the rule is triggered.
+
+Example:
+>  Lets suppose you want to create an AI policy to detect possible scam messages, you could define the following actions:
+>
+>  * Ban User - 90%
+>  * Delete Message - 70%
+>  * Time Out Member for 30 Min - 70%
+>
+>  What these options mean is that if the message sent by an user has a 70% match with the sample texts you defined, the bot will only delete the message and time out the user, however if the message reaches a semantic match of 90% or above, the user will also be banned.
+
+<Video
+  src={moderation}
+  title='Adding a Moderation Rule to the Moderation List'
+  autoPlay
+  loop
+  controls
+/>

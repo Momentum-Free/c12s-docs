@@ -1,0 +1,75 @@
+---
+title: Commands
+description: Learn about the available commands for the C12s bot in Discord.
+sidebar:
+  order: 2
+---
+
+import { Badge, LinkCard } from '@astrojs/starlight/components';
+import { Video } from '@/components/video';
+
+import AddKnowledgeVideo from '@/assets/videos/platforms/discord/add-knowledge.mp4';
+
+## Verify
+
+The `/verify` command is used to link your Discord community to your C12s organization.
+
+To learn more about the `/verify` command and how it works, please check the [Installation Guide](/platforms/discord/install/).
+
+## Add Knowledge
+
+The `/add-knowledge` command is used to create/add new knowledge, via Discord, to your C12s organization.
+
+This command has 3 arguments:
+
+| Name | Type | Description |
+| ---- | ----------- | ----------- |
+| `Title` | Mandatory | The title you wish the knowledge to have |
+| `Answer` | Mandatory | The actual knowledge the bot will learn and use to answer the users' questions |
+| `Source` | Optional | A link that references the source of the knowledge (used for citations) |
+
+<Video
+  src={AddKnowledgeVideo}
+  title='Adding a Knowledge Entry to the Knowledge Base Via Discord'
+  autoPlay
+  loop
+  controls
+/>
+
+## Add Override
+
+The `/add-override` command allows you to create config overrides for a specific channel in your Discord community.
+
+This command has 5 arguments:
+
+| Name | Type | Description |
+| ---- | ----------- | ----------- |
+| `Channel` | Mandatory | The channel you wish to create overrides for |
+| `Personality` | Optional | You can select the type of personality you wish the bot to have in its answers for the selected channel |
+| `Read` | Optional | See [Core Concepts page](/getting-started/core-concepts/#agent) for full information |
+| `Write` | Optional | See [Core Concepts page](/getting-started/core-concepts/#agent) for full information |
+| `Learn` | Optional | See [Core Concepts page](/getting-started/core-concepts/#agent) for full information |
+
+<LinkCard
+    title="Core Concepts - Overrides"
+    href="/getting-started/core-concepts/#overrides"
+    description="For the full documentation on overrides, please check the Core Concepts - Overrides page."
+>
+</LinkCard>
+
+![Use the /add-override command](src/assets/screenshots/platforms/discord/add-override.gif)
+
+## Ask
+
+The `/ask` command is used to explicitly ask a question to the C12s bot.
+
+<Badge text="Note" variant="tip" /> Organizations under the Free plan have to use the `/ask` command (or @tag the bot) to ask questions to it, while organizations under any paid plan do not require this command nor mention (users can simply ask a question in natural language and the bot will automatically pick it up and answer if it has knowledge to do so).
+
+![Use the /ask command](src/assets/screenshots/platforms/discord/ask.gif)
+
+## Sync
+
+The `/sync` command is used to force-sync the C12s Discord with any changes that you made in the [C12s webapp](https://app.c12s.ai?r=docs).
+This should not be needed, as the bot automatically syncs with changes done via the webapp. But if you notice a discrepancy, you can use this command to force a sync.
+
+![Use the /sync command](src/assets/screenshots/platforms/discord/sync.gif)
