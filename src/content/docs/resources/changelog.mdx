@@ -1,0 +1,38 @@
+---
+title: Changelog
+description: A comprehensive list of changes and updates to the C12S platform.
+---
+
+## Version 1.1.1
+Released: 2025-10-17
+
+#### Fixed
+- We introduced a regression with the last 'mobile refresh' update, which caused issues in the 'Unanswered Questions' [dashboard](/getting-started/core-concepts/#dashboard) when a question was too large (without any spaces, such as a long URL). This has now been fixed.
+
+---
+
+## Version 1.1.0
+Released: 2025-10-12
+
+##### Added
+- New badge on the bottom right corner with the current version number.
+- New feature: [Community self-moderation](/getting-started/core-concepts/#community-self-reporting) via the `/report` command (disabled by default).
+
+#### Fixed
+- We made our webapp generally more mobile-friendly. While a few minor features remain 'desktop-only', most of the app should now work seamlessly on mobile devices.
+- Added the same SEO as our homepage to the webapp, so our webapp links (specially the invites) are prettier when shared.
+
+---
+
+## Version 1.0.0
+Released: 2025-10-07
+
+This release marks the initial release of C12s, finally opening the door to the public, after over a year of development behind closed doors with several large teams.
+
+#### Added
+- New section "Moderation Policies & Rules"; tip: check the [spam protection](/moderation/spam-protection) article.
+
+#### Fixed
+- In the [statistics section](/analytics/dashboards), most graphs stopped working a few weeks ago due to a backend migration. This has now been fixed and the first and last graph are now functioning properly.
+- Because registrations are now open, organization invites now work properly without requiring any intervention from our side.
+- We switched authentication systems (from a 3rd-party provider to our own using BetterAuth's library).
