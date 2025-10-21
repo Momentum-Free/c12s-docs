@@ -3,6 +3,24 @@ title: Changelog
 description: A comprehensive list of changes and updates to the C12S platform.
 ---
 
+## Version 1.2.0
+Released: 2025-10-21
+
+##### Added
+- Added new content moderation pattern rules (new content-types for user-bot messages and system messages).
+- PostHog integration to properly attribute referral websites to signed-up customers (_laying the ground work for more advanced internal analytics and eventually creating a referral program_).
+
+#### Fixed
+- The 'Community Engagement' graph now works properly (tracking DAUs on Discord and Telegram). _More updates are coming to this section._
+- The 'Community Activity' graph now displays gray squares for hours in the future (when no data is available), with a nice tooltip.
+- Removed the trend lines on the graphs until they are functional.
+- Improved login/signup error handling.
+- Regular Expressions now automatically include the 'm' flag (multiline).
+- The bot now executes the chosen actions when a user `/report`s a message (previously it was only logging the report).
+- The 'demo mode' integration ([+info here](/organization/integrations/#demo-mode)) now properly does **not** count towards plans connection limits (_use it for testing!_).
+
+---
+
 ## Version 1.1.1
 Released: 2025-10-17
 
