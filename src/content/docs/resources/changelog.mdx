@@ -3,6 +3,21 @@ title: Changelog
 description: A comprehensive list of changes and updates to the C12S platform.
 ---
 
+## Version 1.3.2
+Released: 2025-11-03
+
+##### Added
+- Discord bot → Added a new 'Try again without sources.' button when the AI can't find relevant Knowledge Base entries. This button will try asking the model directly (prone to hallucinations unless the question is something the LLM knows intrinsically);
+- Discord bot → (feature-flagged for now, let us know if you'd like to try it): New 'raw_llm' command to execute "raw prompts" to the LLM; useful when testing custom endpoints/models.
+- BYOK support → We added backend support for 'Bring Your Own Keys' (BYOK), so you can use your own self-hosted/finetuned models with our platform. BYOK is under closed Beta, please contact us if this is important for you.
+
+#### Fixed
+- Fixed issues found with our Discord bot's writing "thread mode";
+- AI responses larger than 2000 characters are now split at the nearest paragraph	boundary, so large messages are sent in multiple parts.
+- Billing page → Fixed an issue where the billing stats for 'Analysed Messages' was not displaying correctly.
+
+---
+
 ## Version 1.3.1
 Released: 2025-10-25
 
