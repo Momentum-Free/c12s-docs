@@ -3,6 +3,32 @@ title: Changelog
 description: A comprehensive list of changes and updates to the C12S platform.
 ---
 
+### Version 1.6.3
+Released: 2025-11-24
+
+#### Added
+- 'Draft Management' in the webapp, local unsubmitted changes are now locally saved automatically, prompting the user to 'continue editing' their work or 'discard unsaved changes' when navigating away from the page. This ensures that users don't lose their progress and can easily resume where they left off.
+
+---
+
+### Version 1.6.2
+Released: 2025-11-21
+
+#### Fixed
+- In some cases inside our webapp, when you click an opened/focused text field, it would undo text editing, causing frustration. This has now been resolved.
+
+---
+
+### Version 1.6.1
+Released: 2025-11-21
+
+#### Added
+- The Community Self-Reporting feature now also includes a response to the offender (if the offender hasn't been banned, in which case that wouldn't matter); this instructs the user why an action (or lack thereof) was taken.
+- New internal feature for 'sanitizing user questions' -- this increases the level of matches from the knowledge base, specially if the user asks something super long (or with multiple questions).
+  - Unfortunately, however, this has made the AI too 'trigger happy', so we're adding yet another step (for paid plans) to rerank the KB outputs and mark the results as relevant or not relevant to the user's original question (if all results are irrelevant, the AI will not answer, to avoid spamming the chat when unmprompted).
+
+---
+
 ## Version 1.6.0
 Released: 2025-11-19
 
