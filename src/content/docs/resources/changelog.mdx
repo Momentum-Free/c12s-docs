@@ -1,6 +1,18 @@
 ---
 title: Changelog
-description: A comprehensive list of changes and updates to the C12S platform.
+description: A comprehensive list of changes and updates to the C12S platform over time.
+---
+
+### Version 1.6.4
+Released: 2025-11-28
+
+#### Added
+- You can now test AI Policies and Pattern Rules, similarly to how you can execute a 'Semantic Search' in the Knowledge Base page;
+- Created a new '[Calibration Mode](/moderation/spam-protection/#calibration-mode)' that allows you to turn on AI Policies and Pattern Rules (including their punishment actions), but without actually executing the punishments (only logging that it would've done so if the calibration mode was off); this is often called doing a "dry run" in IT terms/lingo.
+
+#### Fixed
+- After [v1.6.1](#version-161), the AI would often find much more Knowledge Entries (which is good in most cases), but sometimes even irrelevant ones. This has been fixed by adding an evaluation step that filters out irrelevant results; reducing significantly the number of "false positives" (AI responding when it shouldn't have done so).
+
 ---
 
 ### Version 1.6.3
@@ -25,7 +37,8 @@ Released: 2025-11-21
 #### Added
 - The Community Self-Reporting feature now also includes a response to the offender (if the offender hasn't been banned, in which case that wouldn't matter); this instructs the user why an action (or lack thereof) was taken.
 - New internal feature for 'sanitizing user questions' -- this increases the level of matches from the knowledge base, specially if the user asks something super long (or with multiple questions).
-  - Unfortunately, however, this has made the AI too 'trigger happy', so we're adding yet another step (for paid plans) to rerank the KB outputs and mark the results as relevant or not relevant to the user's original question (if all results are irrelevant, the AI will not answer, to avoid spamming the chat when unprompted).
+  - Unfortunately, however, this has made the AI too 'trigger happy', so we're adding yet another step (for paid plans) to evaluate the KB outputs and filter out irrelevant results to the user's original question (if all results are irrelevant, the AI will not answer, to avoid spamming the chat when unprompted).
+  - Edit: Fixed in [1.6.4](#version-164).
 
 ---
 
